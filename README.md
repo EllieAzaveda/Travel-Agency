@@ -106,4 +106,4 @@ If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to g
 
 
 ### TEST
-This is just a test to see if the repo was properly linked to GH
+Did I fix you?
