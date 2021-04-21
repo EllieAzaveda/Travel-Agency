@@ -105,5 +105,6 @@ _If you are finished with the functionality and testing of your project_, then y
 If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
 
 
+
 ### TEST
-This is just a test to see if the repo was properly linked to GH
+This is just a test to see if the repo was properly linked to GH!!
