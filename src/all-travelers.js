@@ -15,7 +15,7 @@ class AllTravelers {
       }
     })
     return foundTraveler;
-  };
+  }
 
 }
 
