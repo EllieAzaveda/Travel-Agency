@@ -107,3 +107,9 @@ If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to g
 
 ### TEST
 This is just a test to see if the repo was properly linked to GH
+Fix to link new repo with webpack-starter-kit:
+
+`git checkout upstreambranch`
+`git branch main upstreambranch -f`   
+`git checkout main`
+`git push origin main -f`
