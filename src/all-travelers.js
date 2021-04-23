@@ -8,13 +8,14 @@ class AllTravelers {
 
     this.data.find(traveler => {
       if (Object.values(traveler).includes(id)) {
-        return foundTraveler = traveler;
+        foundTraveler = traveler;
+        return foundTraveler;
       } else {
         foundTraveler = "Sorry, no traveler found";
       }
     })
     return foundTraveler;
-  }
+  };
 
 }
 
