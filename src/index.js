@@ -22,15 +22,15 @@ window.addEventListener('load', onStartUp);
 
 function onStartUp() {
   fetchData()
-  .then(totalData => {
-    travelersArray = totalData.travelerData.travelers;
-    tripsArray = totalData.tripsData.trips;
-    destinationArray = totalData.destinationData.destinations;
+    .then(totalData => {
+      travelersArray = totalData.travelerData.travelers;
+      tripsArray = totalData.tripsData.trips;
+      destinationArray = totalData.destinationData.destinations;
 
-    let travelerId = (Math.floor(Math.random() * 49) + 1)
-    let newTraveler = travelersArray.find(traveler => {
-      return traveler.id === Number(travelerId)
-    })
+      let travelerId = (Math.floor(Math.random() * 49) + 1)
+      let newTraveler = travelersArray.find(traveler => {
+        return traveler.id === Number(travelerId)
+      })
     // console.log(newTraveler)
-  })
+    })
 }

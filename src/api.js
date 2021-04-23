@@ -39,9 +39,9 @@ export const postData = (data) => {
       "Content-Type": "application/json"
     }
   })
-  .then(response => response.json())
-  .then(json => console.log(json))
-  .catch(error => console.log("error!", error))
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.log("error!", error))
 }
 
 
