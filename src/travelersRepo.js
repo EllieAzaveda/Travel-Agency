@@ -1,4 +1,4 @@
-class AllTravelers {
+class TravelersRepo {
   constructor(data) {
     this.data = data;
   }
@@ -19,4 +19,4 @@ class AllTravelers {
 
 }
 
-export default AllTravelers;
+export default TravelersRepo;

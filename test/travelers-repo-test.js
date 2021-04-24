@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import AllTravelers from '../src/all-travelers.js'
+import TravelersRepo from '../src/travelersRepo.js'
 
 let allTravelers;
 let travelersData;
@@ -16,7 +16,7 @@ describe("AllTravelers", () => {
       {id: 6, name: "Laverna Flawith", travelerType: "shopper"}
     ];
 
-    allTravelers = new AllTravelers(travelersData);
+    allTravelers = new TravelersRepo(travelersData);
   });
 
   it('should be an instance of AllTravelers class', function() {
