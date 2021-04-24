@@ -2,7 +2,22 @@ class TripRequest {
   constructor(tripsData, destinationData) {
     this.tripsData = tripsData;
     this.destinationData = destinationData;
+    this.startDate = 0;
+    this.duration = 1;
+    this.numOfTravelers = 1;
+    this.destination = "";
+    this.estimatedCost = 0;
     this.status = "available";
+  }
+
+  findSpecificTrip(id) {
+     return this.tripsData.find(trip => {
+      if (Object.values(trip).includes(id)) {
+        return trip;
+      } else {
+        return "Sorry, no trip found";
+      }
+    })
   }
 
   matchDestination(name) {
@@ -16,18 +31,9 @@ class TripRequest {
     return foundDestination;
   }
 
-  findSpecificTrip(id) {
-     return this.tripsData.find(trip => {
-      if (Object.values(trip).includes(id)) {
-        return trip;
-      } else {
-        return "Sorry, no trip found";
-      }
-    })
-  }
-
-  addDate() {
-
+  addDate(date) {
+    let parsedDate = Date.parse(date);
+    return this.startDate = parsedDate;
   }
 
   addDuration() {
@@ -35,10 +41,6 @@ class TripRequest {
   }
 
   addNumOfTravelers() {
-
-  }
-
-  findSpecificDestination() {
 
   }
 
