@@ -1,6 +1,6 @@
 let domUpdates = {
 
-  // populateCards(traveler) {
+  // populateTrips(traveler) {
   //   let cardArea = document.querySelector('.all-cards');
   //
   //   recipes.forEach(recipe => {
@@ -23,7 +23,7 @@ let domUpdates = {
   //   })
   // },
 
-  greetUser(traveler) {
+  greetTraveler(traveler) {
     const travelerName = document.getElementById('travelerName');
     travelerName.innerHTML = `Welcome back ${traveler.name}!`;
   },
