@@ -5,16 +5,16 @@ let traveler;
 let tripsData;
 let destinationData;
 
-describe("Travelers", () => {
+describe("Traveler", () => {
 
   beforeEach(() => {
     tripsData = [
       {id: 1, userID: 44, destinationID: 49, travelers: 1, date: "2019/09/16",
         duration: 8, status: "approved", suggestedActivities: []},
       {id: 2, userID: 12, destinationID: 1, travelers: 5, date: "2020/05/04",
-        duration: 18, status: "past", suggestedActivities: []},
+        duration: 18, status: "approved", suggestedActivities: []},
       {id: 3, userID: 12, destinationID: 2, travelers: 4, date: "2020/10/22",
-        duration: 17, status: "present", suggestedActivities: []},
+        duration: 17, status: "approved", suggestedActivities: []},
       {id: 193, userID: 12, destinationID: 3, travelers: 1, date: "2020/11/09",
         duration: 19, status: "approved", suggestedActivities: []},
       {id: 21, userID: 12, destinationID: 4, travelers: 1, date: "2021/01/28",
@@ -46,9 +46,9 @@ describe("Travelers", () => {
   it('should be able to view all trips', function() {
     expect(traveler.viewAllTrips(tripsData)).to.deep.equal([
       {id: 2, userID: 12, destinationID: 1, travelers: 5, date: "2020/05/04",
-        duration: 18, status: "past", suggestedActivities: []},
+        duration: 18, status: "approved", suggestedActivities: []},
       {id: 3, userID: 12, destinationID: 2, travelers: 4, date: "2020/10/22",
-        duration: 17, status: "present", suggestedActivities: []},
+        duration: 17, status: "approved", suggestedActivities: []},
       {id: 193, userID: 12, destinationID: 3, travelers: 1, date: "2020/11/09",
         duration: 19, status: "approved", suggestedActivities: []},
       {id: 21, userID: 12, destinationID: 4, travelers: 1, date: "2021/01/28",
@@ -67,38 +67,36 @@ describe("Travelers", () => {
 
     expect(traveler.totalTrips).to.deep.equal([
       {id: 2, userID: 12, destinationID: 1, travelers: 5, date: "2020/05/04",
-        duration: 18, status: "past", suggestedActivities: []},
+        duration: 18, status: "approved", suggestedActivities: []},
       {id: 3, userID: 12, destinationID: 2, travelers: 4, date: "2020/10/22",
-        duration: 17, status: "present", suggestedActivities: []},
+        duration: 17, status: "approved", suggestedActivities: []},
       {id: 193, userID: 12, destinationID: 3, travelers: 1, date: "2020/11/09",
         duration: 19, status: "approved", suggestedActivities: []},
       {id: 21, userID: 12, destinationID: 4, travelers: 1, date: "2021/01/28",
         duration: 18, status: "pending", suggestedActivities: []}
     ]);
+  });
 
-    it.only('should be able to determine trip status', function() {
-      let currentDate = "2020/10/22";
-      traveler.determineTripStatus(currentDate);
-
-      expect(this.past).to.deep.equal([{id: 2, userID: 12,
-        destinationID: 1, travelers: 5, date: "2020/05/04",
-        duration: 18, status: "approved", suggestedActivities: []}]);
-      expect(this.present).to.deep.equal([{id: 3, userID: 12,
-        destinationID: 2, travelers: 4, date: "2020/10/22",
-        duration: 17, status: "approved", suggestedActivities: []}]);
-      expect(this.upcoming).to.deep.equal([{id: 193, userID: 12,
-        destinationID: 3, travelers: 1, date: "2020/11/09",
-        duration: 19, status: "approved", suggestedActivities: []}]);
-      expect(this.pending).to.deep.equal([{id: 21, userID: 12,
-        destinationID: 4, travelers: 1, date: "2021/01/28",
-        duration: 18, status: "pending", suggestedActivities: []}]);
-    })
-  })
-
-  it('should be able to tell the total amount spent plus fees', function() {
+  it('should be able to determine trip status', function() {
+    let currentDate = "2020/10/22";
     traveler.viewAllTrips(tripsData);
+    traveler.determineTripStatus(currentDate);
 
-    expect(traveler.calculateTotalSpent(destinationData)).to.equal(8101.5);
-  })
+    expect(traveler.past).to.deep.equal([{id: 2, userID: 12,
+      destinationID: 1, travelers: 5, date: "2020/05/04",
+      duration: 18, status: "approved", suggestedActivities: []}]);
+
+    expect(traveler.present).to.deep.equal([{id: 3, userID: 12,
+      destinationID: 2, travelers: 4, date: "2020/10/22",
+      duration: 17, status: "approved", suggestedActivities: []}]);
+
+    expect(traveler.upcoming).to.deep.equal([{id: 193, userID: 12,
+      destinationID: 3, travelers: 1, date: "2020/11/09",
+      duration: 19, status: "approved", suggestedActivities: []}]);
+
+    expect(traveler.pending).to.deep.equal([{id: 21, userID: 12,
+      destinationID: 4, travelers: 1, date: "2021/01/28",
+      duration: 18, status: "pending", suggestedActivities: []}]);
+  });
 
 });

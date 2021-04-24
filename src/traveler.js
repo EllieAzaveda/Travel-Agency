@@ -24,16 +24,16 @@ class Traveler {
   }
 
   determineTripStatus(date) {
-    // NEED TO ADD DAY.JS HERE TO MATCH DATES
+    let parsedDate = Date.parse(date);
 
     this.totalTrips.forEach(trip => {
-      if (trip.status === "approved" && trip.date < date) {
-        // && trip.date < date
+      let tripDate = Date.parse(trip.date);
+
+      if (trip.status === "approved" && tripDate < parsedDate) {
         this.past.push(trip);
-      } else if (trip.status === "approved" && trip.date === date) {
+      } else if (trip.status === "approved" && tripDate === parsedDate) {
         this.present.push(trip);
-      } else if (trip.status === "approved" && trip.date > date) {
-        // && trip.date > date
+      } else if (trip.status === "approved" && tripDate > parsedDate) {
         this.upcoming.push(trip);
       } else if (trip.status === "pending") {
         this.pending.push(trip);
@@ -56,5 +56,5 @@ class Traveler {
   }
 
 }
-
-export default Traveler;
+module.exports = Traveler;
+// export default Traveler;
