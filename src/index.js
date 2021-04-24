@@ -33,8 +33,9 @@ function onStartUp() {
       let newTraveler = travelersArray.find(traveler => {
         return traveler.id === Number(travelerId)
       })
-      traveler = new Traveler(newTraveler.id, newTraveler.name, newTraveler.travelerType)
+      traveler = new Traveler(newTraveler.id, newTraveler.name,
+        newTraveler.travelerType)
       domUpdates.greetUser(traveler);
-    console.log(traveler)
+      console.log(traveler)
     })
 }
