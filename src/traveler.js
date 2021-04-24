@@ -56,5 +56,5 @@ class Traveler {
   }
 
 }
-module.exports = Traveler;
-// export default Traveler;
+
+export default Traveler;

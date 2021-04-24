@@ -99,4 +99,10 @@ describe("Traveler", () => {
       duration: 18, status: "pending", suggestedActivities: []}]);
   });
 
+  it('should be able to calculate total spent plus agent fee', function() {
+    traveler.viewAllTrips(tripsData);
+
+    expect(traveler.calculateTotalSpent(destinationData)).to.equal(8101.5);
+  })
+
 });
