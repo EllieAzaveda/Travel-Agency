@@ -9,12 +9,14 @@ import './css/base.scss';
 import './images/turing-logo.png'
 
 import {fetchData, postData} from './api.js'
+import domUpdates from './domUpdates';
+import Traveler from './traveler';
+import TravelersRepo from './travelersRepo.js'
 
 let travelersArray;
 let tripsArray;
 let destinationArray;
-
-
+let traveler;
 
 window.addEventListener('load', onStartUp);
 
@@ -31,6 +33,8 @@ function onStartUp() {
       let newTraveler = travelersArray.find(traveler => {
         return traveler.id === Number(travelerId)
       })
-    // console.log(newTraveler)
+      traveler = new Traveler(newTraveler.id, newTraveler.name, newTraveler.travelerType)
+      domUpdates.greetUser(traveler);
+    console.log(traveler)
     })
 }
