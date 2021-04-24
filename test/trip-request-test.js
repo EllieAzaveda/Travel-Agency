@@ -52,9 +52,10 @@ describe("TripRequest", () => {
   });
 
   it('should be able to find a specific trip', function() {
-    expect(tripRequest.findSpecificDestination("Lima, Peru")).to.deep.equal({id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
-      estimatedFlightCostPerPerson: 400, image: "https://images.un.com/1489",
-      alt: "overview of city buildings with a clear sky"})
+    expect(tripRequest.matchDestination(1)).to.deep.equal(
+      {id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400, image: "https://images.un.com/1489",
+        alt: "overview of city buildings with a clear sky"})
   });
 
 });

@@ -5,6 +5,17 @@ class TripRequest {
     this.status = "available";
   }
 
+  matchDestination(name) {
+    let foundDestination = this.destinationData.find(destination => {
+      if (Object.values(destination).includes(name)) {
+        return destination;
+      } else {
+        return "Sorry, no destination found";
+      }
+    })
+    return foundDestination;
+  }
+
   findSpecificTrip(id) {
      return this.tripsData.find(trip => {
       if (Object.values(trip).includes(id)) {
@@ -13,17 +24,6 @@ class TripRequest {
         return "Sorry, no trip found";
       }
     })
-  }
-
-  findSpecificDestination(name) {
-    console.log(name);
-    return this.destinationData.find(destination => {
-     if (Object.values(destination).includes(name)) {
-       return destination;
-     } else {
-       return "Sorry, no trip found";
-     }
-   })
   }
 
   addDate() {
