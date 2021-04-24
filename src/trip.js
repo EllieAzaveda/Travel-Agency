@@ -10,21 +10,6 @@ class Trip {
     this.suggestedActivities = trip.suggestedActivities;
   }
 
-  // makeTripRequest() {
-  //   // Takes a date, duration, # of travelers,
-  //   // choose from list of destinations
-  // }
-
-
-    // calculateEstimatedCost() {
-    //   // +10% agent fee
-    // }
-
-    // updateStatus() {
-    //
-    // }
-
-
 }
 
 export default Trip;

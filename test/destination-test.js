@@ -5,7 +5,7 @@ let destination;
 let tripsData;
 let destinationData;
 
-describe("Trip", () => {
+describe("Destination", () => {
 
   beforeEach(() => {
     tripsData = [
@@ -41,5 +41,8 @@ describe("Trip", () => {
     destination = new Destination(destinationData[0]);
   });
 
+  it('should be an instance of the Destination class', function() {
+    expect(destination).to.be.an.instanceOf(Destination);
+  });
 
 });

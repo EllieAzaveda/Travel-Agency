@@ -38,7 +38,7 @@ describe("TripRequest", () => {
         image: "https://images.un.com/1558", alt: "boats"}
     ];
 
-    tripRequest = new TripRequest(tripsData);
+    tripRequest = new TripRequest(tripsData, destinationData);
   });
 
   it('should be an instance of the TripRequest class', function() {
@@ -46,9 +46,15 @@ describe("TripRequest", () => {
   });
 
   it('should be able to find a specific trip', function() {
-    expect(tripRequest.findSpecificTrip(tripsData, 1)).to.deep.equal({id: 1, userID: 44,
+    expect(tripRequest.findSpecificTrip(1)).to.deep.equal({id: 1, userID: 44,
       destinationID: 49, travelers: 1, date: "2019/09/16", duration: 8,
       status: "approved", suggestedActivities: []})
+  });
+
+  it('should be able to find a specific trip', function() {
+    expect(tripRequest.findSpecificDestination("Lima, Peru")).to.deep.equal({id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400, image: "https://images.un.com/1489",
+      alt: "overview of city buildings with a clear sky"})
   });
 
 });
