@@ -19,7 +19,7 @@ describe("AllTravelers", () => {
     allTravelers = new AllTravelers(travelersData);
   });
 
-  it('should be an instance of Pantry class', function() {
+  it('should be an instance of AllTravelers class', function() {
     expect(allTravelers).to.be.an.instanceOf(AllTravelers);
   });
 
@@ -29,8 +29,9 @@ describe("AllTravelers", () => {
     )
   });
 
-  it('should be able to tell if a specific traveler doesn\'t exist', function() {
-    expect(allTravelers.findSpecificTraveler(51)).to.deep.equal("Sorry, no traveler found")
+  it('should tell if a traveler doesn\'t exist', function() {
+    expect(allTravelers.findSpecificTraveler(51)).to.deep.equal(
+      "Sorry, no traveler found")
   });
 
 });
