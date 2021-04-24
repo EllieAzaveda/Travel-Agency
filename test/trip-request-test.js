@@ -75,7 +75,7 @@ describe("TripRequest", () => {
     expect(tripRequest.numOfTravelers).to.equal(2);
   });
 
-  it('should be able to update status to pending after submitting trip request', function() {
+  it('should  update status after submitting a trip request', function() {
     tripRequest.updateStatus();
     expect(tripRequest.status).to.equal("pending");
   });

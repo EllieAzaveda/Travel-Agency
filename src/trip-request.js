@@ -11,7 +11,7 @@ class TripRequest {
   }
 
   findSpecificTrip(id) {
-     return this.tripsData.find(trip => {
+    return this.tripsData.find(trip => {
       if (Object.values(trip).includes(id)) {
         return trip;
       } else {
@@ -44,13 +44,13 @@ class TripRequest {
   }
 
   calculateEstimatedCost() {
-  let totalPerDay = (this.destination.estimatedLodgingCostPerDay +
-    this.destination.estimatedFlightCostPerPerson) * this.numOfTravelers;
-  let tripsTotal = totalPerDay * this.duration;
-  let agentFee = tripsTotal * 0.1;
+    let totalPerDay = (this.destination.estimatedLodgingCostPerDay +
+      this.destination.estimatedFlightCostPerPerson) * this.numOfTravelers;
+    let tripsTotal = totalPerDay * this.duration;
+    let agentFee = tripsTotal * 0.1;
 
-  this.estimatedCost = tripsTotal + agentFee;
-  return tripsTotal + agentFee;
+    this.estimatedCost = tripsTotal + agentFee;
+    return tripsTotal + agentFee;
   }
 
 }
