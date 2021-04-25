@@ -8,8 +8,6 @@ class Traveler {
     this.present = [];
     this.upcoming = [];
     this.pending = [];
-    this.totalSpent = 0;
-    this.agentFee = 0;
   }
 
   viewAllTrips(data) {
@@ -52,7 +50,8 @@ class Traveler {
       return total;
     }, 0)
     let agentFee = tripsTotal * 0.1;
-    return tripsTotal + agentFee;
+    let finalAmount = tripsTotal + agentFee;
+    return finalAmount.toFixed(2);
   }
 
 }
