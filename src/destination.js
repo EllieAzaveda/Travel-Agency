@@ -8,9 +8,9 @@ class Destination {
     this.alt = destination.alt;
   }
 
-  findDestinations(destinationData) {
-  return destinationData.map(dest => dest.destination).sort();
-}
+  findAllDestinations(destinationData) {
+    return destinationData.map(dest => dest.destination).sort();
+  }
 
 }
 

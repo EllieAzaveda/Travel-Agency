@@ -43,7 +43,7 @@ describe("Traveler", () => {
     expect(traveler).to.be.an.instanceOf(Traveler);
   });
 
-  it('should be able to view all trips', function() {
+  it('should be able to view all of a specific traveler\'s trips', function() {
     expect(traveler.viewAllTrips(tripsData)).to.deep.equal([
       {id: 2, userID: 12, destinationID: 1, travelers: 5, date: "2020/05/04",
         duration: 18, status: "approved", suggestedActivities: []},
@@ -102,7 +102,7 @@ describe("Traveler", () => {
   it('should be able to calculate total spent plus agent fee', function() {
     traveler.viewAllTrips(tripsData);
 
-    expect(traveler.calculateTotalSpent(destinationData)).to.equal(8101.5);
+    expect(traveler.calculateTotalSpent(destinationData)).to.equal("8101.50");
   })
 
 });

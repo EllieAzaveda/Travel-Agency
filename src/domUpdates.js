@@ -1,34 +1,65 @@
 let domUpdates = {
 
-  // populateTrips(traveler) {
-  //   let cardArea = document.querySelector('.all-cards');
+  // populateTrips(traveler, destinations) {
+  //     let currentTrips = document.querySelector('.current-trips');
+  //     let upcomingTrips = document.querySelector('.upcoming-trips');
+  //     let pendingTrips = document.querySelector('.pending-trips');
+  //     let pastTrips = document.querySelector('.past-trips');
   //
-  //   recipes.forEach(recipe => {
-  //     cardArea.insertAdjacentHTML('afterbegin', `<div id='${recipe.id}'
-  //     class='card'>
-  //         <header id='${recipe.id}' class='card-header'>
-  //           <label for='add-button' class='hidden'>Click to add recipe</label>
-  //           <button id='${recipe.id}' aria-label='add-button' class='add-recipe-button card-button'><img id='${recipe.id} favorite' class='add add-recipe-button'
-  //             src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
-  //             recipes to cook'>
-  //           </button>
-  //           <label for='favorite-button' class='hidden'>Click to favorite recipe
-  //           </label>
-  //           <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${recipe.id} card-button'></button>
-  //         </header>
-  //           <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
-  //           <img id='${recipe.id}' tabindex='0' class='card-picture'
-  //           src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
-  //     </div>`)
-  //   })
-  // },
+  //     destinations.forEach(destination => {
+  //       if(trip.destinationID === destination.id) {
+  //         traveler.present.forEach(travelerTrip => {
+  //           currentTrips.insertAdjacentHTML('afterbegin',
+  //             `<div class="trip-card" id="${travelerTrip.id}">
+  //               <image class="destination-image" src="${destination.image}" alt="${destination.alt}"/>
+  //               <div class="card-body">
+  //                 <h3 class="trip-desc">You went to</h1>
+  //                 <h2 class="destination-name" id="${destination.destination}">${destination.destination}</h2>
+  //                 <h6 class="trip-date" id="${travelerTrip.travelers}">${travelerTrip.date}</h6>
+  //               </div>
+  //           </div>`)
+  //         })
+  //         traveler.upcoming.forEach(travelerTrip => {
+  //           currentTrips.insertAdjacentHTML('afterbegin',
+  //             `<div class="trip-card" id="${travelerTrip.id}">
+  //               <image class="destination-image" src="${destination.image}" alt="${destination.alt}"/>
+  //               <div class="card-body">
+  //                 <h3 class="trip-desc">You went to</h1>
+  //                 <h2 class="destination-name" id="${destination.destination}">${destination.destination}</h2>
+  //                 <h6 class="trip-date" id="${travelerTrip.travelers}">${travelerTrip.date}</h6>
+  //             </div>
+  //         </div>`)
+  //         })
+  //         traveler.pending.forEach(travelerTrip => {
+  //           pendingTrips.insertAdjacentHTML('afterbegin',
+  //             `<div class="trip-card" id="${travelerTrip.id}">
+  //               <image class="destination-image" src="${destination.image}" alt="${destination.alt}"/>
+  //               <div class="card-body">
+  //                 <h3 class="trip-desc">You went to</h1>
+  //                 <h2 class="destination-name" id="${destination.destination}">${destination.destination}</h2>
+  //                 <h6 class="trip-date" id="${travelerTrip.travelers}">${travelerTrip.date}</h6>
+  //               </div>`
+  //           </div>`)
+  //         })
+  //         traveler.past.forEach(trip => {
+  //           pastTrips.insertAdjacentHTML('afterbegin',
+  //             `<div class="trip-card" id="${travelerTrip.id}">
+  //               <image class="destination-image" src="${destination.image}" alt="${destination.alt}"/>
+  //               <div class="card-body">
+  //                 <h3 class="trip-desc">You went to</h1>
+  //                 <h2 class="destination-name" id="${destination.destination}">${destination.destination}</h2>
+  //                 <h6 class="trip-date" id="${travelerTrip.travelers}">${travelerTrip.date}</h6>
+  //               </div>`
+  //           </div>`)
+  //         })
+  //       })
+  //     })
+  //   },
 
   greetTraveler(traveler) {
     const travelerName = document.getElementById('travelerName');
-    travelerName.innerHTML = `Welcome back ${traveler.name}!`;
+    travelerName.innerHTML = `${traveler.name}!`;
   },
-
-
 
 }
 

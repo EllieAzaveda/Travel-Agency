@@ -4,6 +4,7 @@ import Destination from '../src/destination.js'
 let destination;
 let destinationData;
 
+
 describe("Destination", () => {
 
   beforeEach(() => {
@@ -27,6 +28,22 @@ describe("Destination", () => {
 
   it('should be an instance of the Destination class', function() {
     expect(destination).to.be.an.instanceOf(Destination);
+  });
+
+  it('should have all properties of the Destination object', function() {
+    expect(destination.id).to.equal(1);
+    expect(destination.destination).to.equal("Lima, Peru");
+    expect(destination.estLodgingCost).to.equal(70);
+    expect(destination.estFlightCost).to.equal(400);
+    expect(destination.image).to.equal("https://images.un.com/1489");
+    expect(destination.alt).to.equal("overview of city buildings with a clear sky");
+  });
+
+  it('should be able to show all destinations in abc order', function() {
+    expect(destination.findAllDestinations(destinationData)).to.deep.equal([
+      "Cartagena, Colombia", "Lima, Peru",
+      "Stockholm, Sweden", "Sydney, Austrailia"
+    ]);
   });
 
 });
