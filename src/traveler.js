@@ -21,10 +21,11 @@ class Traveler {
     return !allTrips.length ? "Sorry, no trips found" : allTrips;
   }
 
-  determineTripStatus(date) {
+  determineTripStatus(date, tripsArray) {
     let parsedDate = Date.parse(date);
+    this.totalTrips = tripsArray;
 
-    this.totalTrips.forEach(trip => {
+    tripsArray.forEach(trip => {
       let tripDate = Date.parse(trip.date);
 
       if (trip.status === "approved" && tripDate < parsedDate) {

@@ -1,25 +1,16 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-
-// An example of how you tell webpack to use an image
-// (also need to link to it in the index.html)
+// import './images/airplane-icon.png'
 
 import {fetchData, postData} from './api.js'
 import domUpdates from './domUpdates';
 import Traveler from './traveler';
 import TravelersRepo from './travelersRepo.js'
 
-let travelersArray;
-let tripsArray;
-let destinationArray;
-let traveler;
+let travelersArray, tripsArray,
+destinationArray, traveler;
+let currentDate =  "2020/10/22";
 
 window.addEventListener('load', onStartUp);
-
-
 
 function onStartUp() {
   fetchData()
@@ -35,6 +26,13 @@ function onStartUp() {
       traveler = new Traveler(newTraveler.id, newTraveler.name,
         newTraveler.travelerType)
       domUpdates.greetUser(traveler);
+      displayTravelerTrips();
+      // domUpdates.populateTrips(traveler, destinationArray);
       console.log(traveler)
     })
+}
+
+function displayTravelerTrips() {
+  let allTrips = traveler.viewAllTrips(tripsArray);
+  traveler.determineTripStatus(currentDate, allTrips);
 }
