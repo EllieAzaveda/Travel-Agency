@@ -1,0 +1,86 @@
+body {
+  display: grid;
+  grid-template-rows: 15% 10% 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6 1fr);
+  // font-family: 'Goudy Bookletter 1911', serif;
+}
+
+/* ****** NAV BAR AREA ****** */
+
+.main-nav {
+  border: 5px solid #00CC99;
+  grid-column: 1 / span 6;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.airplane-icon {
+  margin: 1em;
+}
+
+// .book-trip {
+//
+// }
+
+.travel-agency {
+  font-size: 2.5vh;
+}
+
+.greeting{
+  display: block;
+  margin: 1em 8em;
+}
+
+.welcome {
+  font-size: 3vh;
+}
+
+.traveler-name {
+  font-size: 4vh;
+  margin-left: 25%;
+}
+
+.user-name {
+  margin: 1em;
+  height: 20%;
+}
+
+/* ****** ASIDE ****** */
+
+.trip-request-aside {
+  border: 5px solid #ff0066;
+  grid-column: 1;
+  grid-row: 2 / span 6;
+}
+
+/* ****** TRIPS DISPLAY ****** */
+
+.total-spent {
+  font-size: 5vh;
+  grid-column: 2 / span 3;
+  grid-row: 2;
+  margin-left: 8vw;
+}
+
+.current-trip {
+  grid-column: 3 / span 3;
+  grid-row: 3;
+  margin-left: 2vw;
+}
+
+.upcoming-trips {
+  grid-column: 2 / span 6;
+  grid-row: 4;
+}
+
+.pending-trips {
+  grid-column: 2 / span 6;
+  grid-row: 5;
+}
+
+.past-trips {
+  grid-column: 2 / span 6;
+  grid-row: 6;
+}
