@@ -14,9 +14,12 @@ let travelersArray;
 let tripsArray;
 let destinationArray;
 let traveler;
+let userTrips;
 let currentDate = "2020/10/22";
 
+
 window.addEventListener('load', onStartUp);
+
 
 function onStartUp() {
   fetchData()
@@ -25,20 +28,25 @@ function onStartUp() {
       tripsArray = totalData.tripsData.trips;
       destinationArray = totalData.destinationData.destinations;
 
-      let travelerId = (Math.floor(Math.random() * 49) + 1)
-      let newTraveler = travelersArray.find(traveler => {
-        return traveler.id === Number(travelerId)
-      })
-      traveler = new Traveler(newTraveler.id, newTraveler.name,
-        newTraveler.travelerType)
-      domUpdates.greetTraveler(traveler);
-      displayTravelerTrips();
-      // domUpdates.populateTrips(traveler, destinationArray);
-      console.log(traveler)
+    let travelerId = (Math.floor(Math.random() * 49) + 1)
+    let newTraveler = travelersArray.find(traveler => {
+      return traveler.id === Number(travelerId)
     })
+    traveler = new Traveler(newTraveler.id, newTraveler.name,
+      newTraveler.travelerType)
+    userTrips = traveler.viewAllTrips(tripsArray);
+
+    domUpdates.greetTraveler(traveler);
+    showTotalSpent();
+    showTripsCards();
+  })
 }
 
-function displayTravelerTrips() {
-  let allTrips = traveler.viewAllTrips(tripsArray);
-  traveler.determineTripStatus(currentDate, allTrips);
+function showTotalSpent() {
+  let totalSpent = traveler.calculateTotalSpent(destinationArray);
+  domUpdates.displayTotalSpent(totalSpent);
+}
+
+function showTripsCards() {
+  domUpdates.populateTrips(currentDate, traveler, userTrips, destinationArray);
 }

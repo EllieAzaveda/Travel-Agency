@@ -79,8 +79,8 @@ describe("Traveler", () => {
 
   it('should be able to determine trip status', function() {
     let currentDate = "2020/10/22";
-    traveler.viewAllTrips(tripsData);
-    traveler.determineTripStatus(currentDate);
+    let travelerTrips = traveler.viewAllTrips(tripsData);
+    traveler.determineTripStatus(currentDate, travelerTrips);
 
     expect(traveler.past).to.deep.equal([{id: 2, userID: 12,
       destinationID: 1, travelers: 5, date: "2020/05/04",

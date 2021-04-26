@@ -21,7 +21,7 @@ class TripRequest {
   }
 
   matchDestination(name) {
-    let foundDestination = this.destinationData.find(destination => {
+    return this.destinationData.find(destination => {
       if (Object.values(destination).includes(name)) {
         this.destination = destination;
         return destination;
@@ -29,7 +29,6 @@ class TripRequest {
         return "Sorry, no destination found";
       }
     })
-    return foundDestination;
   }
 
   makeTripRequest(date, duration, numTravelers) {
