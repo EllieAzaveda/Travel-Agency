@@ -1,14 +1,20 @@
 import './css/base.scss';
-// import './images/airplane-icon.png'
+// import '../images/airplane-icon.png'
 
 import {fetchData, postData} from './api.js'
 import domUpdates from './domUpdates';
+import Destination from './destination'
 import Traveler from './traveler';
-import TravelersRepo from './travelersRepo.js'
+import TravelersRepo from './travelersRepo'
+import TripRequest from './trip-request'
+import Trip from './trip'
 
-let travelersArray, tripsArray,
-destinationArray, traveler;
-let currentDate =  "2020/10/22";
+
+let travelersArray;
+let tripsArray;
+let destinationArray;
+let traveler;
+let currentDate = "2020/10/22";
 
 window.addEventListener('load', onStartUp);
 
@@ -25,7 +31,7 @@ function onStartUp() {
       })
       traveler = new Traveler(newTraveler.id, newTraveler.name,
         newTraveler.travelerType)
-      domUpdates.greetUser(traveler);
+      domUpdates.greetTraveler(traveler);
       displayTravelerTrips();
       // domUpdates.populateTrips(traveler, destinationArray);
       console.log(traveler)

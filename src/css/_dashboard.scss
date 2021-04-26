@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-rows: 15% 10% 1fr 1fr 1fr 1fr;
-  grid-template-columns: repeat(6 1fr);
+  grid-template-columns: 20% 1fr 1fr 1fr 1fr 20%;
   // font-family: 'Goudy Bookletter 1911', serif;
 }
 
@@ -39,7 +39,6 @@ body {
 
 .traveler-name {
   font-size: 4vh;
-  margin-left: 25%;
 }
 
 .user-name {
@@ -58,16 +57,15 @@ body {
 /* ****** TRIPS DISPLAY ****** */
 
 .total-spent {
-  font-size: 5vh;
-  grid-column: 2 / span 3;
+  font-size: 4vh;
+  grid-column: 3 / span 2;
   grid-row: 2;
-  margin-left: 8vw;
+  margin: 2vh;
 }
 
 .current-trip {
   grid-column: 3 / span 3;
   grid-row: 3;
-  margin-left: 2vw;
 }
 
 .upcoming-trips {
