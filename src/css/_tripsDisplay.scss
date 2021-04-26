@@ -37,19 +37,23 @@
     background-color: #FFFFFF;
     border: 3px solid #6699ff;
     height: 20vh;
-    width: 15vw;
+    width: 13.5vw;
     display: grid;
     grid-template-rows: 65% 35%;
     justify-content: center;
+    margin: .3em;
   }
 
   .destination-image {
-    background-repeat: no-repeat;
+    height: 13vh;
+    max-width: 100%;
     grid-row: 1;
+    object-fit: fill;
   }
 
   .card-body {
     grid-row: 2;
+    margin: .3em;
   }
 
   .destination-name {

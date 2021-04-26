@@ -11,42 +11,45 @@ let domUpdates = {
     tripsInfo.forEach(trip => {
       if (trip.tripType === "current") {
         currentTrip.innerHTML +=
-        // <image class="destination-image" src="${trip.image}" alt="${trip.alt}"/>
         `<div class="trip-card" id="${trip.id}">
-        <div class="card-body">
-        <h3 class="trip-desc">You went to</h1>
-        <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-        <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
-        </div>
-        </div>`
-      } else if (trip.tripType === "upcoming") {
-        upcomingTrips.insertAdjacentHTML('afterbegin',
-        `<div class="trip-card" id="${trip.id}">
+          <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
           </div>
-        </div>`)
+        </div>`
       } else if (trip.tripType === "pending") {
         pendingTrips.insertAdjacentHTML('afterbegin',
         `<div class="trip-card" id="${trip.id}">
+          <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
+          </div>
+        </div>`)
+      } else if (trip.tripType === "upcoming") {
+        upcomingTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
           </div>
         </div>`)
       } else if (trip.tripType === "past") {
         pastTrips.insertAdjacentHTML('afterbegin',
         `<div class="trip-card" id="${trip.id}">
+          <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
             <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
           </div>
         </div>`)
-      } 
+      }
     })
 
     // function displayHelper() {
