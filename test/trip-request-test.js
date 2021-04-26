@@ -5,6 +5,7 @@ let tripRequest;
 let tripsData;
 let destinationData;
 
+
 describe("TripRequest", () => {
 
   beforeEach(() => {
@@ -51,7 +52,7 @@ describe("TripRequest", () => {
       status: "approved", suggestedActivities: []})
   });
 
-  it('should be able to find a specific trip', function() {
+  it('should be able to find a specific destination', function() {
     expect(tripRequest.matchDestination("Lima, Peru")).to.deep.equal(
       {id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
         estimatedFlightCostPerPerson: 400, image: "https://images.un.com/1489",
@@ -75,7 +76,7 @@ describe("TripRequest", () => {
     expect(tripRequest.numOfTravelers).to.equal(2);
   });
 
-  it('should  update status after submitting a trip request', function() {
+  it('should update status after submitting a trip request', function() {
     tripRequest.updateStatus();
     expect(tripRequest.status).to.equal("pending");
   });

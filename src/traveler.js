@@ -8,8 +8,6 @@ class Traveler {
     this.present = [];
     this.upcoming = [];
     this.pending = [];
-    this.totalSpent = 0;
-    this.agentFee = 0;
   }
 
   viewAllTrips(data) {
@@ -23,10 +21,11 @@ class Traveler {
     return !allTrips.length ? "Sorry, no trips found" : allTrips;
   }
 
-  determineTripStatus(date) {
+  determineTripStatus(date, tripsArray) {
     let parsedDate = Date.parse(date);
+    this.totalTrips = tripsArray;
 
-    this.totalTrips.forEach(trip => {
+    tripsArray.forEach(trip => {
       let tripDate = Date.parse(trip.date);
 
       if (trip.status === "approved" && tripDate < parsedDate) {
@@ -52,7 +51,8 @@ class Traveler {
       return total;
     }, 0)
     let agentFee = tripsTotal * 0.1;
-    return tripsTotal + agentFee;
+    let finalAmount = tripsTotal + agentFee;
+    return finalAmount.toFixed(2);
   }
 
 }

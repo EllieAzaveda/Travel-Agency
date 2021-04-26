@@ -4,22 +4,41 @@
     <title>Travel Agency</title>
   </head>
   <body>
-    <nav>
-      <span></span>
-      <span></span>
-      <span></span>
-      <h1>Travel Agency</h1>
-      <h3 id="travelerName"></h3>
-      <button></button>
-    </nav>
-    <main>
-      <h1>TOTAL $ SPENT</h1>
-      <section class="trips-cards-grid">
-        <div class="current-trips">Current Trip!</div>
-        <div class="upcoming-trips">Upcoming Trips</div>
-        <div class="pending-trips">Pending Trips</div>
-        <div class="past-trips">Past Trips</div>
-      </section>
-    </main>
-  </body>
+      <!-- <img src="./images/faran-raufi-leaf-unsplash.jpg"
+        alt="faran raufi close up leaf in black and white" height="100%" width="100%"> -->
+      <nav class="main-nav">
+        <!-- <img src="./images/airplane-icon.png" class="airplane-icon" alt="simple airplane icon" height="30%" width="5%"> -->
+        <span class="book-trip">Book your next trip!</span>
+        <div class="greeting">
+          <!-- <h1 class="travel-agency">Travel Agency</h1> -->
+          <h4 class="welcome">Are you ready for your next adventure,</h4>
+          <h3 class="traveler-name" id="travelerName"></h3>
+        </div>
+        <button class="user-name" id="travelerName">username</button>
+      </nav>
+      <aside class="trip-request-aside">
+        <form class="trip-request">
+          <div class="calendar"></div>
+          <input class="nights-input"></input>
+          <input class="nights-input"></input>
+          <button class="dest-dropdown"></button>
+        </form>
+      </aside>
+      <main class="main-area">
+        <h1 class="total-spent" id="totalSpent">TOTAL $ SPENT</h1>
+        <div class="current-trip view-trips">Current Trip!
+          <div class="trip-card">
+            <image class="destination-image"/>
+            <div class="card-body">
+              <h3 class="trip-desc">You went to</h1>
+              <h2 class="destination-name">Destination Name</h2>
+              <h6 class="trip-date">Monday 4/16/2021</h6>
+            </div>
+          </div>
+        </div>
+        <div class="upcoming-trips view-trips">Upcoming Trips</div>
+        <div class="pending-trips view-trips">Pending Trips</div>
+        <div class="past-trips view-trips">Past Trips</div>
+      </main>
+    </body>
 </html>

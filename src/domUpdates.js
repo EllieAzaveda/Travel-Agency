@@ -1,34 +1,69 @@
 let domUpdates = {
 
-  // populateTrips(traveler) {
-  //   let cardArea = document.querySelector('.all-cards');
-  //
-  //   recipes.forEach(recipe => {
-  //     cardArea.insertAdjacentHTML('afterbegin', `<div id='${recipe.id}'
-  //     class='card'>
-  //         <header id='${recipe.id}' class='card-header'>
-  //           <label for='add-button' class='hidden'>Click to add recipe</label>
-  //           <button id='${recipe.id}' aria-label='add-button' class='add-recipe-button card-button'><img id='${recipe.id} favorite' class='add add-recipe-button'
-  //             src='https://image.flaticon.com/icons/svg/32/32339.svg' alt='Add to
-  //             recipes to cook'>
-  //           </button>
-  //           <label for='favorite-button' class='hidden'>Click to favorite recipe
-  //           </label>
-  //           <button id='${recipe.id}' aria-label='favorite-button' class='favorite favorite${recipe.id} card-button'></button>
-  //         </header>
-  //           <span id='${recipe.id}' class='recipe-name'>${recipe.name}</span>
-  //           <img id='${recipe.id}' tabindex='0' class='card-picture'
-  //           src='${recipe.image}' alt='click to view recipe for ${recipe.name}'>
-  //     </div>`)
-  //   })
-  // },
+  populateTrips(tripsInfo) {
+    let currentTrip = document.querySelector('.current-trip');
+    let upcomingTrips = document.querySelector('.upcoming-trips');
+    let pendingTrips = document.querySelector('.pending-trips');
+    let pastTrips = document.querySelector('.past-trips');
+
+    console.log("TRIPS OBJECT", tripsInfo);
+
+    tripsInfo.forEach(trip => {
+      if (trip.tripType === "current") {
+        currentTrip.innerHTML +=
+        // <image class="destination-image" src="${trip.image}" alt="${trip.alt}"/>
+        `<div class="trip-card" id="${trip.id}">
+        <div class="card-body">
+        <h3 class="trip-desc">You went to</h1>
+        <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+        <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+        </div>
+        </div>`
+      } else if (trip.tripType === "upcoming") {
+        upcomingTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } else if (trip.tripType === "pending") {
+        pendingTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } else if (trip.tripType === "past") {
+        pastTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } 
+    })
+
+    // function displayHelper() {
+    //
+    //   traveler.determineTripStatus(currentDate, allTrips);
+    // }
+  },
 
   greetTraveler(traveler) {
     const travelerName = document.getElementById('travelerName');
-    travelerName.innerHTML = `Welcome back ${traveler.name}!`;
+    travelerName.innerHTML = `${traveler.name}!`;
   },
 
-
+  displayTotalSpent(amount) {
+    const totalSpent = document.getElementById('totalSpent');
+    totalSpent.innerHTML = `Total spent on trips: $${amount}`;
+  }
 
 }
 
