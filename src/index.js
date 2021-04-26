@@ -48,5 +48,34 @@ function showTotalSpent() {
 }
 
 function showTripsCards() {
-  domUpdates.populateTrips(currentDate, traveler, userTrips, destinationArray);
+  let parsedDate = Date.parse(currentDate);
+
+  let tripsInfo = userTrips.reduce((arr, trip) => {
+    let tripDate = Date.parse(trip.date);
+    let tripObj = {};
+
+    destinationArray.forEach(destination => {
+      if (trip.destinationID === destination.id) {
+        if (trip.status === "approved" && tripDate < parsedDate) {
+          tripObj["tripType"] = "past";
+        } else if (trip.status === "approved" && tripDate === parsedDate) {
+          tripObj["tripType"] = "current";
+        } else if (trip.status === "approved" && tripDate > parsedDate) {
+          tripObj["tripType"] = "upcoming";
+        } else if (trip.status === "pending") {
+          tripObj["tripType"] = "pending";
+        }
+      tripObj["id"] = destination.id;
+      tripObj["destination"] = destination.destination;
+      tripObj["image"] = destination.image;
+      tripObj["alt"] = destination.alt;
+      tripObj["travelers"] = trip.travelers;
+      tripObj["date"] = trip.date;
+      }
+    })
+    arr.push(tripObj);
+    return arr;
+  }, []);
+  
+  domUpdates.populateTrips(tripsInfo);
 }

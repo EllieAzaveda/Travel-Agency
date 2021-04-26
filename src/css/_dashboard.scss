@@ -57,21 +57,32 @@ body {
 
 /* ****** TRIPS DISPLAY ****** */
 
+.main-area {
+  display: grid;
+  grid-template-rows: 15% 1fr 1fr 1fr 1fr;
+  grid-template-columns: 10% 1fr 10%;
+  height: 100vh;
+  width: 100vw;
+}
+
 .total-spent {
   font-size: 4vh;
-  grid-column: 3 / span 3;
-  grid-row: 2;
-  margin: 2vh;
+  grid-column: 2 / span 3;
+  grid-row: 1;
+}
+
+.view-trips {
+  display: inline-flex;
 }
 
 .current-trip {
-  grid-column: 3 / span 3;
+  grid-column: 2 / span 3;
   grid-row: 3;
 }
 
 .upcoming-trips {
   grid-column: 2 / span 6;
-  grid-row: 4;
+  grid-row: 5;
 }
 
 .pending-trips {
@@ -81,5 +92,5 @@ body {
 
 .past-trips {
   grid-column: 2 / span 6;
-  grid-row: 6;
+  grid-row: 7;
 }

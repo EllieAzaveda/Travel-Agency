@@ -1,32 +1,53 @@
 let domUpdates = {
 
-  populateTrips(date, traveler, userTrips, destinations) {
-    let currentTrips = document.querySelector('.current-trips');
+  populateTrips(tripsInfo) {
+    let currentTrip = document.querySelector('.current-trip');
     let upcomingTrips = document.querySelector('.upcoming-trips');
     let pendingTrips = document.querySelector('.pending-trips');
     let pastTrips = document.querySelector('.past-trips');
 
-    // console.log("USER TRIPS", userTrips[0]);
-    // console.log("DESTINATION", destinations[0]);
-    // console.log("USER", traveler);
+    console.log("TRIPS OBJECT", tripsInfo);
 
-    let tripsInfo = userTrips.reduce((arr, trip) => {
-      let tripObj = {};
-
-      return arr;
-    }, []);
-
-    // trips.forEach(trip => {
-    //   upcomingTrips.insertAdjacentHTML('afterbegin',
-    //     `<div class="trip-card" id="${trip.id}">
-    //       <image class="destination-image" src="${trip.image}" alt="${trip.alt}"/>
-    //       <div class="card-body">
-    //         <h3 class="trip-desc">You went to</h1>
-    //         <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-    //         <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
-    //       </div>
-    //   </div>`)
-    // })
+    tripsInfo.forEach(trip => {
+      if (trip.tripType === "current") {
+        currentTrip.innerHTML +=
+        // <image class="destination-image" src="${trip.image}" alt="${trip.alt}"/>
+        `<div class="trip-card" id="${trip.id}">
+        <div class="card-body">
+        <h3 class="trip-desc">You went to</h1>
+        <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+        <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+        </div>
+        </div>`
+      } else if (trip.tripType === "upcoming") {
+        upcomingTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } else if (trip.tripType === "pending") {
+        pendingTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } else if (trip.tripType === "past") {
+        pastTrips.insertAdjacentHTML('afterbegin',
+        `<div class="trip-card" id="${trip.id}">
+          <div class="card-body">
+            <h3 class="trip-desc">You went to</h1>
+            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
+            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+          </div>
+        </div>`)
+      } 
+    })
 
     // function displayHelper() {
     //
