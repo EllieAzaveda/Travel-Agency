@@ -76,6 +76,6 @@ function showTripsCards() {
     arr.push(tripObj);
     return arr;
   }, []);
-  
+
   domUpdates.populateTrips(tripsInfo);
 }

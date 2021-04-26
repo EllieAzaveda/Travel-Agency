@@ -9,6 +9,8 @@ let domUpdates = {
     console.log("TRIPS OBJECT", tripsInfo);
 
     tripsInfo.forEach(trip => {
+      // let tripDate = dayjs(trip.date).format("MMMM D YYYY");
+
       if (trip.tripType === "current") {
         currentTrip.innerHTML +=
         `<div class="trip-card" id="${trip.id}">
@@ -16,7 +18,7 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.date}">on ${trip.date}</h6>
           </div>
         </div>`
       } else if (trip.tripType === "pending") {
@@ -26,7 +28,7 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.date}">on ${trip.date}</h6>
           </div>
         </div>`)
       } else if (trip.tripType === "upcoming") {
@@ -36,7 +38,7 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">on ${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.date}">on ${trip.date}</h6>
           </div>
         </div>`)
       } else if (trip.tripType === "past") {
@@ -46,7 +48,7 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.travelers}">${trip.date}</h6>
+            <h6 class="trip-date" id="${trip.date}">${trip.date}</h6>
           </div>
         </div>`)
       }
