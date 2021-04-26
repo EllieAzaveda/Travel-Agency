@@ -82,7 +82,11 @@ body {
 
 .upcoming-trips {
   grid-column: 2 / span 6;
+<<<<<<< HEAD
   grid-row: 4;
+=======
+  grid-row: 5;
+>>>>>>> 48de3d2109ff8bf1033f23aeb69dc460361dec5c
 }
 
 .pending-trips {
@@ -92,5 +96,9 @@ body {
 
 .past-trips {
   grid-column: 2 / span 6;
+<<<<<<< HEAD
   grid-row: 6;
+=======
+  grid-row: 7;
+>>>>>>> 48de3d2109ff8bf1033f23aeb69dc460361dec5c
 }
