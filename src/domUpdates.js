@@ -152,7 +152,13 @@ let domUpdates = {
   },
 
   // Login page
-  
+
+  displayLoginError() {
+    let submitCredentials = document.getElementById("submitCredentials");
+
+    submitCredentials.insertAdjacentHTML('beforeend',
+    `<p class="login-error" id="loginError">Sorry! That traveler can't be found 🙊</p>`)
+  }
 
 }
 
