@@ -63,7 +63,7 @@ let domUpdates = {
   greetTraveler(traveler) {
     const welcomeGreeting = document.getElementById("welcomeGreeting");
     welcomeGreeting.insertAdjacentHTML('beforeend',
-    `<h3 class="traveler-name" id="travelerName ${traveler.name}">${traveler.name}</h3>`)
+    `<p class="traveler-name" id="travelerName ${traveler.name}">${traveler.name}</p>`)
 
   },
 
