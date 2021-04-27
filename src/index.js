@@ -88,13 +88,11 @@ function confirmLogin() {
   let newTraveler = travelersArray.find(traveler => {
     return traveler.id === idNum
   })
-  // console.log(travelerID)
 
   traveler = new Traveler(newTraveler.id, newTraveler.name,
     newTraveler.travelerType)
   userTrips = traveler.viewAllTrips(tripsArray);
   tripRequest = new TripRequest(tripsArray, destinationArray);
-  // console.log(traveler);
 
   starterHelper();
   toggleMainView();
@@ -157,7 +155,13 @@ function generateFormOptions() {
 
 function saveTripRequest() {
   let tripRequestData = makeTripRequest();
-  postNewTrip(tripRequestData);
+  postNewTrip(tripRequestData)
+  fetchData()
+  .then(totalData => {
+    travelersArray = totalData.travelerData.travelers;
+    tripsArray = totalData.tripsData.trips;
+    destinationArray = totalData.destinationData.destinations;
+  })
 }
 
 function makeTripRequest() {
@@ -176,6 +180,7 @@ function makeTripRequest() {
     status: "pending",
     suggestedActivities: [],
   }
+  // console.log(pendingTrip)
   domUpdates.displayPendingTrips(destID, pendingTrip);
   domUpdates.displayEstCost(destID, pendingTrip);
   return pendingTrip;

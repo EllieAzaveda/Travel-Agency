@@ -49,8 +49,8 @@ export const postNewTrip = (data) => {
   }
   return fetch("http://localhost:3001/api/v1/trips")
     .then(checkForErr)
-    .then(data => {
-      allData.tripsData.push(data)
+    .then(newData => {
+      allData.tripsData.push(newData)
       console.log(allData)
     })
     .catch(error => "Sorry! We're having some trouble. Please try back later!")
