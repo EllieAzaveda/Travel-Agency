@@ -4,11 +4,18 @@
     <title>Travel Agency</title>
   </head>
   <body>
+    <section class="login-page" id="loginPage">
+      <div class="login-box" id="loginBox">
+        <input class="username-input" id="usernameInput"></input>
+        <input class="password-input" id="passwordInput"></input>
+        <button class="submit-credentials" id="submitCredentials"></button>
+      </div>
+    </section>
+    <section class="dashboard hidden" id="dashboard">
       <nav class="main-nav">
         <img src="./images/airplane-icon.png" class="airplane-icon" id="airplaneIcon" alt="simple airplane icon" height="30%" width="5%">
         <label for ="airplaneIcon" class="book-trip">Book your next trip!</label>
         <div class="greeting">
-          <!-- <h1 class="travel-agency">Travel Agency Name && Logo</h1> -->
           <h1 class="welcome" id="welcomeGreeting">Are you ready for your next adventure,</h4>
         </div>
         <button class="user-name" id="travelerName">username</button>
@@ -44,5 +51,6 @@
         <h1 class="pending trips-title">PENDING TRIPS</h1>
         <div class="pending-trips view-trips" id="pendingTrips"></div>
       </main>
-    </body>
+    </section>
+  </body>
 </html>
