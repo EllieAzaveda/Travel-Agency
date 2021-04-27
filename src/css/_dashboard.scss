@@ -17,6 +17,8 @@ body {
 }
 
 .airplane-icon {
+  height: 5vh;
+  width: 2vw;
   margin: 1em;
 }
 
@@ -55,42 +57,49 @@ body {
   grid-row: 2 / span 6;
 }
 
-/* ****** TRIPS DISPLAY ****** */
-
-.main-area {
+.trip-request {
   display: grid;
-  grid-template-rows: 15% 1fr 1fr 1fr 1fr;
-  grid-template-columns: 10% 1fr 10%;
-  height: 100vh;
-  width: 100vw;
+  grid-template-rows: repeat(5, 1fr);
 }
 
-.total-spent {
-  font-size: 4vh;
-  grid-column: 2 / span 3;
-  grid-row: 1;
+.form-label {
+  margin: 1em;
 }
 
-.view-trips {
-  display: inline-flex;
+.start-date {
+   height: 2em;
+   margin: .5em;
 }
 
-.current-trip {
-  grid-column: 2 / span 3;
+.container {
+  border: 5px solid yellow;
+  grid-row: 2;
+}
+
+.nights-container {
+  border: 5px solid orange;
   grid-row: 3;
 }
 
-.upcoming-trips {
-  grid-column: 2 / span 6;
+.travelers-container {
+  border: 5px solid orange;
+  grid-row: 4;
+}
+
+.dest-dropdown-container {
+  border: 5px solid blue;
   grid-row: 5;
 }
 
-.pending-trips {
-  grid-column: 2 / span 6;
-  grid-row: 5;
+.dest-options {
+  height: 4vh;
+  width: 16vw;
 }
 
-.past-trips {
-  grid-column: 2 / span 6;
-  grid-row: 7;
+.submit-button {
+  border: 5px solid purple;
+  height: 4vh;
+  width: 12vw;
+  grid-row: 6;
+  margin: 1em 2em;;
 }

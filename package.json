@@ -16,6 +16,7 @@
   "author": "Turing School of Software and Design",
   "license": "MIT",
   "devDependencies": {
+    "antd-dayjs-webpack-plugin": "^1.0.6",
     "chai": "^4.2.0",
     "css-loader": "^5.0.1",
     "eslint": "^7.17.0",
