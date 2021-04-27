@@ -5,44 +5,44 @@
   </head>
   <body>
       <nav class="main-nav">
-        <img src="./images/airplane-icon.png" class="airplane-icon" alt="simple airplane icon" height="30%" width="5%">
-        <span class="book-trip">Book your next trip!</span>
+        <img src="./images/airplane-icon.png" class="airplane-icon" id="airplaneIcon" alt="simple airplane icon" height="30%" width="5%">
+        <label for ="airplaneIcon" class="book-trip">Book your next trip!</label>
         <div class="greeting">
           <!-- <h1 class="travel-agency">Travel Agency Name && Logo</h1> -->
-          <h4 class="welcome">Are you ready for your next adventure,</h4>
-          <h3 class="traveler-name" id="travelerName"></h3>
+          <h1 class="welcome" id="welcomeGreeting">Are you ready for your next adventure,</h4>
         </div>
         <button class="user-name" id="travelerName">username</button>
       </nav>
-      <aside class="trip-request-aside">
+      <aside class="trip-request-aside hidden" id="tripRequestAside">
         <section class="trip-request">
           <span id="startDateChoice" class="form-label">When would you like to leave?</span>
           <input type="date" class="start-date" id="startDate" name="trip-start" value="2020-10-22" min="2019-01-01" max="2022-12-31">
           <div class="nights-container">
             <label for="nights-input" class="form-label">How many nights would you like to stay?</label>
-            <select class="nights-input" id="nightsOptions" required></select>
+            <select class="nights-input options" id="nightsOptions" required></select>
           </div>
           <div class="travelers-container">
             <label for="travelers-input" class="form-label">How many friends will be joining you?</label>
-            <select class="travelers-input" id="travelersOptions" required></select>
+            <select class="travelers-input options" id="travelersOptions" required></select>
           </div>
           <div class="dest-dropdown-container">
             <label for="dest-dropdown" class="form-label">Where would you like to go?</label>
             <select class="dest-options" id="destOptions" required></select>
           </div>
           <button class="submit-button" id="submitButton">Submit Trip Reqest</button>
+          <p class="est-cost" id="estCost"></p>
         </section>
       </aside>
       <main class="main-area">
         <h1 class="total-spent" id="totalSpent">TOTAL $ SPENT</h1>
-        <h3 class="current trips-title">Current Trip</h3>
+        <h1 class="current trips-title">Current TRIP</h1>
         <div class="current-trip view-trips" id="currentTrip"></div>
-        <h3 class="past trips-title">Past Trips</h3>
-        <div class="past-trips view-trips" id="pastTrip"></div>
-        <h3 class="upcoming trips-title">Upcoming Trips</h3>
-        <div class="upcoming-trips view-trips" id="upcomingTrip"></div>
-        <h3 class="pending trips-title">Pending Trips</h3>
-        <div class="pending-trips view-trips" id="pendingTrip"></div>
+        <h1 class="past trips-title">PAST TRIPS</h1>
+        <div class="past-trips view-trips" id="pastTrips"></div>
+        <h1 class="upcoming trips-title">UPCOMING TRIPS</h1>
+        <div class="upcoming-trips view-trips" id="upcomingTrips"></div>
+        <h1 class="pending trips-title">PENDING TRIPS</h1>
+        <div class="pending-trips view-trips" id="pendingTrips"></div>
       </main>
     </body>
 </html>

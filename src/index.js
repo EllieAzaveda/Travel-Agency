@@ -23,10 +23,14 @@ const travelers = document.getElementById("travelersOptions");
 const destination = document.getElementById("destOptions");
 const startDate = document.getElementById("startDate");
 const submitButton = document.getElementById("submitButton");
+const airplaneIcon = document.getElementById("airplaneIcon")
+const tripRequestAside = document.getElementById("tripRequestAside")
+
 
 window.addEventListener("load", onStartUp);
 
 submitButton.addEventListener("click", saveTripRequest);
+airplaneIcon.addEventListener("click", toggleBookTrip);
 
 function onStartUp() {
   fetchData()
@@ -103,7 +107,6 @@ function generateFormOptions() {
 function saveTripRequest() {
   let tripRequestData = makeTripRequest();
   postNewTrip(tripRequestData);
-  console.log(tripRequestData);
 }
 
 function makeTripRequest() {
@@ -112,7 +115,7 @@ function makeTripRequest() {
   let destID = destinationArray.find(dest => dest.destination === destination.value)
   let newID = tripsArray.length + 1;
 
-  return {
+   let pendingTrip = {
     id: newID,
     userId: traveler.id,
     destinationID: destID.id,
@@ -121,5 +124,17 @@ function makeTripRequest() {
     duration: nightsNum,
     status: "pending",
     suggestedActivities: [],
+  }
+  domUpdates.displayPendingTrips(destID, pendingTrip);
+  domUpdates.displayEstCost(destID, pendingTrip);
+  return pendingTrip;
+}
+
+function toggleBookTrip() {
+  if (tripRequestAside.classList.contains('hidden')) {
+    tripRequestAside.classList.toggle('hidden');
+  } else {
+    tripRequestAside.classList.toggle('hidden');
+    tripRequestAside.setAttribute('aria-hidden', 'true');
   }
 }
