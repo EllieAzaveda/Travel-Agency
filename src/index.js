@@ -1,25 +1,32 @@
 import './css/base.scss';
-// import '../images/airplane-icon.png'
+import './images/airplane-icon.png'
 
-import {fetchData, postData} from './api.js'
+import {fetchData, postNewTrip} from './api.js'
 import domUpdates from './domUpdates';
 import Destination from './destination'
 import Traveler from './traveler';
 import TravelersRepo from './travelersRepo'
 import TripRequest from './trip-request'
 import Trip from './trip'
-
+import dayjs from 'dayjs';
 
 let travelersArray;
 let tripsArray;
 let destinationArray;
 let traveler;
 let userTrips;
-let currentDate = "2020/10/22";
+let tripRequest;
+let currentDate = new Date("2020/10/22");
 
+const nights = document.getElementById("nightsOptions");
+const travelers = document.getElementById("travelersOptions");
+const destination = document.getElementById("destOptions");
+const startDate = document.getElementById("startDate");
+const submitButton = document.getElementById("submitButton");
 
-window.addEventListener('load', onStartUp);
+window.addEventListener("load", onStartUp);
 
+submitButton.addEventListener("click", saveTripRequest);
 
 function onStartUp() {
   fetchData()
@@ -35,11 +42,17 @@ function onStartUp() {
     traveler = new Traveler(newTraveler.id, newTraveler.name,
       newTraveler.travelerType)
     userTrips = traveler.viewAllTrips(tripsArray);
+    tripRequest = new TripRequest(tripsArray, destinationArray);
 
-    domUpdates.greetTraveler(traveler);
-    showTotalSpent();
-    showTripsCards();
+    starterHelper();
   })
+}
+
+function starterHelper() {
+  domUpdates.greetTraveler(traveler);
+  showTotalSpent();
+  showTripsCards();
+  generateFormOptions();
 }
 
 function showTotalSpent() {
@@ -78,4 +91,35 @@ function showTripsCards() {
   }, []);
 
   domUpdates.populateTrips(tripsInfo);
+}
+
+function generateFormOptions() {
+  let destinationNames = tripRequest.findAllDestinations(destinationArray);
+  domUpdates.populateNightsOptions();
+  domUpdates.populateTravelersOptions();
+  domUpdates.populateDestOptions(destinationNames);
+}
+
+function saveTripRequest() {
+  let tripRequestData = makeTripRequest();
+  postNewTrip(tripRequestData);
+  console.log(tripRequestData);
+}
+
+function makeTripRequest() {
+  let nightsNum = parseInt(nights.value);
+  let travelersNum = parseInt(travelers.value);
+  let destID = destinationArray.find(dest => dest.destination === destination.value)
+  let newID = tripsArray.length + 1;
+
+  return {
+    id: newID,
+    userId: traveler.id,
+    destinationID: destID.id,
+    travelers: travelersNum,
+    date: startDate.value,
+    duration: nightsNum,
+    status: "pending",
+    suggestedActivities: [],
+  }
 }

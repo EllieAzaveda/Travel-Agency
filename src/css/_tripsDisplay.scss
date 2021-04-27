@@ -27,8 +27,8 @@
   grid-row: 2;
 }
 
-.pending,
-.pending-trips {
+.past,
+.past-trips {
   grid-column: 2 / span 3;
   grid-row: 3;
 }
@@ -39,8 +39,8 @@
   grid-row: 4;
 }
 
-.past,
-.past-trips {
+.pending,
+.pending-trips {
   grid-column: 2 / span 3;
   grid-row: 5;
 }

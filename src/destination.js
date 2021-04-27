@@ -8,10 +8,6 @@ class Destination {
     this.alt = destination.alt;
   }
 
-  findAllDestinations(destinationData) {
-    return destinationData.map(dest => dest.destination).sort();
-  }
-
 }
 
 export default Destination;

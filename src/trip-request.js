@@ -1,3 +1,5 @@
+import Trip from '../src/trip.js'
+
 class TripRequest {
   constructor(tripsData, destinationData) {
     this.tripsData = tripsData;
@@ -20,26 +22,41 @@ class TripRequest {
     })
   }
 
+  findAllDestinations(destinationData) {
+    return destinationData.map(dest => dest.destination).sort();
+  }
+
   matchDestination(name) {
     return this.destinationData.find(destination => {
       if (Object.values(destination).includes(name)) {
-        this.destination = destination;
-        return destination;
+        this.destination = destination.id;
+        return this.destination;
       } else {
         return "Sorry, no destination found";
       }
     })
   }
 
-  makeTripRequest(date, duration, numTravelers) {
-    let parsedDate = Date.parse(date);
-    this.startDate = parsedDate;
+// Needs a test
+  addDateToRequest(date) {
+    let tripDate = new Date(date);
+    this.startDate = tripDate;
+  }
+
+  // Needs a test
+  addDurationToRequest(duration) {
     this.duration = duration;
+  }
+
+  addTravelersToRequest(numTravelers) {
     this.numOfTravelers = numTravelers;
   }
 
-  updateStatus() {
+  makeTripRequest(traveler) {
     this.status = "pending";
+    let newTrip = new Trip(traveler.id, this.destination, this.travelers, this.date,
+      this.duration, this.status, suggestedActivities = [])
+    return newTrip;
   }
 
   calculateEstimatedCost() {
