@@ -119,6 +119,8 @@ let domUpdates = {
     `<h4 class="dest-option" id="startDate ${dateDisplay}">${dateDisplay}</h4>`)
   },
 
+  // Pending Trips
+
   displayPendingTrips(dest, pendingTrip) {
     let pendingTrips = document.getElementById("pendingTrips");
 
@@ -148,6 +150,9 @@ let domUpdates = {
     estCost.innerHTML += `Your trip request has been submitted!
     The estimated cost of this trip is: $${estimatedCost}`
   },
+
+  // Login page
+  
 
 }
 

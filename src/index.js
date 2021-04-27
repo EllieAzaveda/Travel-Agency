@@ -23,14 +23,17 @@ const travelers = document.getElementById("travelersOptions");
 const destination = document.getElementById("destOptions");
 const startDate = document.getElementById("startDate");
 const submitButton = document.getElementById("submitButton");
-const airplaneIcon = document.getElementById("airplaneIcon")
-const tripRequestAside = document.getElementById("tripRequestAside")
-
+const airplaneIcon = document.getElementById("airplaneIcon");
+const tripRequestAside = document.getElementById("tripRequestAside");
+const usernameInput = document.getElementById("usernameInput");
+const passwordInput = document.getElementById("passwordInput");
+const loginButton = document.getElementById("submitCredentials");
 
 window.addEventListener("load", onStartUp);
 
 submitButton.addEventListener("click", saveTripRequest);
 airplaneIcon.addEventListener("click", toggleBookTrip);
+loginButton.addEventListener("click", verifyCredentials);
 
 function onStartUp() {
   fetchData()
@@ -57,6 +60,12 @@ function starterHelper() {
   showTotalSpent();
   showTripsCards();
   generateFormOptions();
+}
+
+function verifyCredentials() {
+  usernameInput
+  passwordInput
+
 }
 
 function showTotalSpent() {
@@ -93,7 +102,6 @@ function showTripsCards() {
     arr.push(tripObj);
     return arr;
   }, []);
-
   domUpdates.populateTrips(tripsInfo);
 }
 
