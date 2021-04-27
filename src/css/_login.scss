@@ -1,0 +1,35 @@
+.login-page {
+  background-image: linear-gradient(to bottom right, #561F37, #4E2C2D, #453823);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 15em;
+}
+
+.login-box {
+  background-color: #F5E9E2;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 65%;
+  border-radius: .5em;
+}
+
+.login-input-box {
+
+}
+
+.login-input-label {
+  font-size: 2.2vh;
+}
+
+.submit-credentials {
+  height: 3vh;
+  width: 20vw;
+  border-radius: .3em;
+  border: 1px solid #486173;
+  background-color: #418291;
+}

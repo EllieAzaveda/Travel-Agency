@@ -23,14 +23,55 @@ const travelers = document.getElementById("travelersOptions");
 const destination = document.getElementById("destOptions");
 const startDate = document.getElementById("startDate");
 const submitButton = document.getElementById("submitButton");
-const airplaneIcon = document.getElementById("airplaneIcon")
-const tripRequestAside = document.getElementById("tripRequestAside")
-
+const airplaneIcon = document.getElementById("airplaneIcon");
+const tripRequestAside = document.getElementById("tripRequestAside");
+const loginButton = document.getElementById("submitCredentials");
+const loginPage = document.getElementById("loginPage");
+const dashboard  = document.getElementById("dashboard");
+const usernameInput = document.getElementById("usernameInput");
+const passwordInput = document.getElementById("passwordInput");
 
 window.addEventListener("load", onStartUp);
 
 submitButton.addEventListener("click", saveTripRequest);
 airplaneIcon.addEventListener("click", toggleBookTrip);
+loginButton.addEventListener("click", verifyCredentials);
+
+// Login Functions
+
+function verifyCredentials() {
+  let userInput = usernameInput.value
+  let allUsernames = [];
+  for (let i = 1; i < 51; i++) {
+    allUsernames.push(`traveler${i}`);
+  };
+
+  let foundUserName = allUsernames.find(username => username === userInput);
+
+  if (foundUserName && passwordInput.value === "travel2020") {
+    confirmLogin();
+    return findTraveler(foundUserName);
+  } else {
+    domUpdates.displayLoginError();
+  }
+}
+
+function findTraveler(foundUserName) {
+  let username = usernameInput.value
+  let travelerID;
+
+  if (username.length === 9) {
+    travelerID = username.slice(-1);
+  } else {
+    travelerID = username.slice(-2);
+  };
+  return travelerID;
+}
+
+function toggleMainView() {
+  dashboard.classList.remove('hidden');
+  loginPage.classList.add('hidden');
+}
 
 function onStartUp() {
   fetchData()
@@ -38,19 +79,26 @@ function onStartUp() {
       travelersArray = totalData.travelerData.travelers;
       tripsArray = totalData.tripsData.trips;
       destinationArray = totalData.destinationData.destinations;
-
-    let travelerId = (Math.floor(Math.random() * 49) + 1)
-    let newTraveler = travelersArray.find(traveler => {
-      return traveler.id === Number(travelerId)
     })
-    traveler = new Traveler(newTraveler.id, newTraveler.name,
-      newTraveler.travelerType)
-    userTrips = traveler.viewAllTrips(tripsArray);
-    tripRequest = new TripRequest(tripsArray, destinationArray);
-
-    starterHelper();
-  })
 }
+
+function confirmLogin() {
+  let travelerID = findTraveler();
+  let idNum = parseInt(travelerID);
+  let newTraveler = travelersArray.find(traveler => {
+    return traveler.id === idNum
+  })
+
+  traveler = new Traveler(newTraveler.id, newTraveler.name,
+    newTraveler.travelerType)
+  userTrips = traveler.viewAllTrips(tripsArray);
+  tripRequest = new TripRequest(tripsArray, destinationArray);
+
+  starterHelper();
+  toggleMainView();
+}
+
+// Dashboard Display
 
 function starterHelper() {
   domUpdates.greetTraveler(traveler);
@@ -93,9 +141,10 @@ function showTripsCards() {
     arr.push(tripObj);
     return arr;
   }, []);
-
   domUpdates.populateTrips(tripsInfo);
 }
+
+// Trip Request Functions
 
 function generateFormOptions() {
   let destinationNames = tripRequest.findAllDestinations(destinationArray);
@@ -106,7 +155,13 @@ function generateFormOptions() {
 
 function saveTripRequest() {
   let tripRequestData = makeTripRequest();
-  postNewTrip(tripRequestData);
+  postNewTrip(tripRequestData)
+  fetchData()
+  .then(totalData => {
+    travelersArray = totalData.travelerData.travelers;
+    tripsArray = totalData.tripsData.trips;
+    destinationArray = totalData.destinationData.destinations;
+  })
 }
 
 function makeTripRequest() {
@@ -125,6 +180,7 @@ function makeTripRequest() {
     status: "pending",
     suggestedActivities: [],
   }
+  // console.log(pendingTrip)
   domUpdates.displayPendingTrips(destID, pendingTrip);
   domUpdates.displayEstCost(destID, pendingTrip);
   return pendingTrip;
