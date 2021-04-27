@@ -4,9 +4,9 @@ let domUpdates = {
 
   populateTrips(tripsInfo, dayjs) {
     let currentTrip = document.getElementById("currentTrip");
-    let pastTrips = document.getElementById("pastTrip");
-    let upcomingTrips = document.getElementById("upcomingTrip");
-    let pendingTrips = document.getElementById("pendingTrip");
+    let pastTrips = document.getElementById("pastTrips");
+    let upcomingTrips = document.getElementById("upcomingTrips");
+    let pendingTrips = document.getElementById("pendingTrips");
 
     tripsInfo.forEach(trip => {
       let tripDate = new Date(trip.date);
@@ -17,10 +17,10 @@ let domUpdates = {
         `<div class="trip-card" id="${trip.id}">
           <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
-            <h3 class="trip-desc">You are currently in</h1>
-            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <p class="trip-desc">You are currently in</p>
+            <p class="destination-name" id="${trip.destination}">${trip.destination}</p>
+            <p class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</p>
+            <p class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</p>
           </div>
         </div>`
       } else if (trip.tripType === "pending") {
@@ -28,10 +28,10 @@ let domUpdates = {
         `<div class="trip-card" id="${trip.id}">
           <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
-            <h3 class="trip-desc">You are hoping to go to</h1>
-            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <p class="trip-desc">You are hoping to go to</p>
+            <p class="destination-name" id="${trip.destination}">${trip.destination}</p>
+            <p class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</p>
+            <p class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</p>
           </div>
         </div>`)
       } else if (trip.tripType === "upcoming") {
@@ -39,10 +39,10 @@ let domUpdates = {
         `<div class="trip-card" id="${trip.id}">
           <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
-            <h3 class="trip-desc">You're going to go to</h1>
-            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <p class="trip-desc">You're going to go to</p>
+            <p class="destination-name" id="${trip.destination}">${trip.destination}</p>
+            <p class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</p>
+            <p class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</p>
           </div>
         </div>`)
       } else if (trip.tripType === "past") {
@@ -50,10 +50,10 @@ let domUpdates = {
         `<div class="trip-card" id="${trip.id}">
           <image class="destination-image" src="${trip.image}"  alt="${trip.alt}"/>
           <div class="card-body">
-            <h3 class="trip-desc">You went to</h1>
-            <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date trip-desc" id="${trip.date}">${dateDisplay}</h6>
-            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <p class="trip-desc">You went to</p>
+            <p class="destination-name" id="${trip.destination}">${trip.destination}</p>
+            <p class="trip-date trip-desc" id="${trip.date}">${dateDisplay}</p>
+            <p class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</p>
           </div>
         </div>`)
       }
@@ -61,8 +61,10 @@ let domUpdates = {
   },
 
   greetTraveler(traveler) {
-    const travelerName = document.getElementById("travelerName");
-    travelerName.innerHTML = `${traveler.name}!`;
+    const welcomeGreeting = document.getElementById("welcomeGreeting");
+    welcomeGreeting.insertAdjacentHTML('beforeend',
+    `<h3 class="traveler-name" id="travelerName ${traveler.name}">${traveler.name}</h3>`)
+
   },
 
   displayTotalSpent(amount) {
@@ -115,8 +117,37 @@ let domUpdates = {
 
     startDateChoice.insertAdjacentHTML('beforeend',
     `<h4 class="dest-option" id="startDate ${dateDisplay}">${dateDisplay}</h4>`)
-  }
+  },
 
+  displayPendingTrips(dest, pendingTrip) {
+    let pendingTrips = document.getElementById("pendingTrips");
+
+    pendingTrips.insertAdjacentHTML('afterbegin',
+    `<div class="trip-card" id="${pendingTrip.id}">
+      <image class="destination-image" src="${dest.image}"  alt="${dest.alt}"/>
+      <div class="card-body">
+        <p class="trip-desc">You are hoping to go to</p>
+        <p class="destination-name" id="${dest.destination}">${dest.destination}</p>
+        <p class="trip-date trip-desc" id="${pendingTrip.date}">on ${pendingTrip.date}</p>
+        <p class="trip-travelers trip-desc" id="${pendingTrip.travelers}">with ${pendingTrip.travelers} friends</p>
+      </div>
+    </div><br>`)
+  },
+
+  displayEstCost(dest, pendingTrip) {
+    let estCost = document.getElementById("estCost");
+    estCost.innerHTML = " ";
+
+    let totalPerDay = (dest.estimatedLodgingCostPerDay +
+      dest.estimatedFlightCostPerPerson) * pendingTrip.travelers;
+    let tripsTotal = totalPerDay * pendingTrip.duration;
+    let agentFee = tripsTotal * 0.1;
+
+    let estimatedCost = tripsTotal + agentFee;
+
+    estCost.innerHTML += `Your trip request has been submitted!
+    The estimated cost of this trip is: $${estimatedCost}`
+  },
 
 }
 

@@ -12,19 +12,19 @@ body {
   grid-column: 1 / span 6;
   grid-row: 1;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .airplane-icon {
   height: 5vh;
   width: 4vw;
-  margin: 1em;
+  margin: 1em .5em 1em 2em;
 }
 
-// .book-trip {
-//
-// }
+.book-trip {
+  font-size: 2vh;
+}
 
 .travel-agency {
   font-size: 2.5vh;
@@ -118,5 +118,4 @@ body {
 }
 
 .total-spent {
-  font: #D7D9CE;
 }
