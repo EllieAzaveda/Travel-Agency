@@ -19,8 +19,8 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You are currently in</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-date" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
+            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
           </div>
         </div>`
       } else if (trip.tripType === "pending") {
@@ -30,8 +30,8 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You are hoping to go to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-date" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
+            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
           </div>
         </div>`)
       } else if (trip.tripType === "upcoming") {
@@ -41,8 +41,8 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You're going to go to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.date}">on ${dateDisplay}</h6>
-            <h6 class="trip-date" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <h6 class="trip-date trip-desc" id="${trip.date}">on ${dateDisplay}</h6>
+            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
           </div>
         </div>`)
       } else if (trip.tripType === "past") {
@@ -52,8 +52,8 @@ let domUpdates = {
           <div class="card-body">
             <h3 class="trip-desc">You went to</h1>
             <h2 class="destination-name" id="${trip.destination}">${trip.destination}</h2>
-            <h6 class="trip-date" id="${trip.date}">${dateDisplay}</h6>
-            <h6 class="trip-date" id="${trip.travelers}">with ${trip.travelers} friends</h6>
+            <h6 class="trip-date trip-desc" id="${trip.date}">${dateDisplay}</h6>
+            <h6 class="trip-travelers trip-desc" id="${trip.travelers}">with ${trip.travelers} friends</h6>
           </div>
         </div>`)
       }
