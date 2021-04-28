@@ -6,11 +6,11 @@
   <body>
     <section class="login-page" id="loginPage">
       <div class="login-box" id="loginBox">
-        <label for="username-input" class="login-input-label">Enter your username:</label>
-        <input class="username-input login-input-box" id="usernameInput"></input>
-        <label for="password-input" class="login-input-label">Enter your password:</label>
-        <input class="password-input login-input-box" id="passwordInput"></input>
-        <button class="submit-credentials" id="submitCredentials">Login</button>
+        <label for="usernameInput" class="login-input-label">Enter your username:</label>
+        <input class="username-input login-input-box" id="usernameInput" required></input>
+        <label for="passwordInput" class="login-input-label">Enter your password:</label>
+        <input class="password-input login-input-box" id="passwordInput"required></input>
+        <button class="submit-credentials" id="submitCredentials" role="button" aria-pressed="false">Login</button>
       </div>
     </section>
     <section class="dashboard hidden" id="dashboard">
