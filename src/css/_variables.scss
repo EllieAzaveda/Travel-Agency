@@ -1,0 +1,8 @@
+$tan: #F5E9E2;
+
+
+@mixin centered() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

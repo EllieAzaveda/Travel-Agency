@@ -1,5 +1,6 @@
 import './css/base.scss';
 import './images/airplane-icon.png'
+import './images/plane-ticket.png'
 
 import {fetchData, postNewTrip} from './api.js'
 import domUpdates from './domUpdates';
@@ -33,7 +34,7 @@ const passwordInput = document.getElementById("passwordInput");
 
 window.addEventListener("load", onStartUp);
 
-submitButton.addEventListener("click", saveTripRequest);
+submitButton.addEventListener("click", makeTripRequest);
 airplaneIcon.addEventListener("click", toggleBookTrip);
 loginButton.addEventListener("click", verifyCredentials);
 
@@ -153,17 +154,6 @@ function generateFormOptions() {
   domUpdates.populateDestOptions(destinationNames);
 }
 
-function saveTripRequest() {
-  let tripRequestData = makeTripRequest();
-  postNewTrip(tripRequestData)
-  fetchData()
-  .then(totalData => {
-    travelersArray = totalData.travelerData.travelers;
-    tripsArray = totalData.tripsData.trips;
-    destinationArray = totalData.destinationData.destinations;
-  })
-}
-
 function makeTripRequest() {
   let nightsNum = parseInt(nights.value);
   let travelersNum = parseInt(travelers.value);
@@ -172,15 +162,16 @@ function makeTripRequest() {
 
    let pendingTrip = {
     id: newID,
-    userId: traveler.id,
+    userID: traveler.id,
     destinationID: destID.id,
     travelers: travelersNum,
-    date: startDate.value,
+    date: startDate.value.split('-').join('/'),
     duration: nightsNum,
     status: "pending",
     suggestedActivities: [],
   }
-  // console.log(pendingTrip)
+  console.log(pendingTrip)
+  postNewTrip(pendingTrip)
   domUpdates.displayPendingTrips(destID, pendingTrip);
   domUpdates.displayEstCost(destID, pendingTrip);
   return pendingTrip;
