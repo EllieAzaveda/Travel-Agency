@@ -153,16 +153,6 @@ function generateFormOptions() {
   domUpdates.populateTravelersOptions();
   domUpdates.populateDestOptions(destinationNames);
 }
-//
-// function saveTripRequest() {
-//   let tripRequestData = makeTripRequest();
-//   // fetchData()
-//   // .then(totalData => {
-//   //   travelersArray = totalData.travelerData.travelers;
-//   //   tripsArray = totalData.tripsData.trips;
-//   //   destinationArray = totalData.destinationData.destinations;
-//   // })
-// }
 
 function makeTripRequest() {
   let nightsNum = parseInt(nights.value);

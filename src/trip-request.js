@@ -56,21 +56,21 @@ class TripRequest {
     this.status = "pending";
   }
 
-  makeTripRequest(traveler) {
+  makeTripRequest(date, nightsNum, numTravelers) {
     this.status = "pending";
-    let newTrip = new Trip(traveler.id, this.destination, this.travelers, this.date,
-      this.duration, this.status, this.suggestedActivities = [])
-    return newTrip;
+    this.numOfTravelers = numTravelers;
+    this.duration = nightsNum;
+    this.startDate = date;
   }
 
-  calculateEstimatedCost() {
-    let totalPerDay = (this.destination.estimatedLodgingCostPerDay +
-      this.destination.estimatedFlightCostPerPerson) * this.numOfTravelers;
-    let tripsTotal = totalPerDay * this.duration;
+  calculateEstimatedCost(destination, travelers, duration) {
+    let totalPerDay = (destination.estimatedLodgingCostPerDay +
+      destination.estimatedFlightCostPerPerson) * travelers;
+    let tripsTotal = totalPerDay * duration;
     let agentFee = tripsTotal * 0.1;
 
-    this.estimatedCost = tripsTotal + agentFee;
-    return tripsTotal + agentFee;
+    let estimatedCost = tripsTotal + agentFee;
+    return estimatedCost;
   }
 
 }

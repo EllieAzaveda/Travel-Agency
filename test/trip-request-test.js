@@ -66,9 +66,9 @@ describe("TripRequest", () => {
   });
 
   it('should be able to update trip request info', function() {
-    tripRequest.makeTripRequest({"2021/04/26", 8, 2});
+    tripRequest.makeTripRequest("2021/04/26", 8, 2);
 
-    expect(tripRequest.startDate).to.equal(1619416800000);
+    expect(tripRequest.startDate).to.equal('2021/04/26');
     expect(tripRequest.duration).to.equal(8);
     expect(tripRequest.numOfTravelers).to.equal(2);
   });
@@ -79,11 +79,9 @@ describe("TripRequest", () => {
   });
 
   it('should be able to calculate cost of trip with agent fee', function() {
-    tripRequest.matchDestination("Lima, Peru");
-    tripRequest.makeTripRequest("2021/04/26", 8, 2);
-    tripRequest.calculateEstimatedCost();
-    console.log(tripRequest.calculateEstimatedCost())
-    expect(tripRequest.estimatedCost).to.equal(8272);
+    expect(tripRequest.calculateEstimatedCost({id: 1, destination: "Lima, Peru", estimatedLodgingCostPerDay: 70,
+      estimatedFlightCostPerPerson: 400, image: "https://images.un.com/1489",
+      alt: "overview of city buildings with a clear sky"}, 8, 2)).to.equal(8272);
   });
 
 
