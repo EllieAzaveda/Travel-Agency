@@ -16,7 +16,7 @@
 * Responsively designed to ensure both desktop and mobile compatibility
 * Responsibly designed to ensure accessibility for all athletes
 
-![TravelAgency_gif]()
+![TravelAgency_screenShot](https://user-images.githubusercontent.com/76409536/116341032-691acc00-a79d-11eb-9c4d-0acfc7eee72d.png)
 
 ## Installation
 #### Clone This Repo
