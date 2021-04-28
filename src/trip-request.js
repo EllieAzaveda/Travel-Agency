@@ -52,10 +52,14 @@ class TripRequest {
     this.numOfTravelers = numTravelers;
   }
 
+  updateStatus() {
+    this.status = "pending";
+  }
+
   makeTripRequest(traveler) {
     this.status = "pending";
     let newTrip = new Trip(traveler.id, this.destination, this.travelers, this.date,
-      this.duration, this.status, suggestedActivities = [])
+      this.duration, this.status, this.suggestedActivities = [])
     return newTrip;
   }
 

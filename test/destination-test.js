@@ -39,11 +39,4 @@ describe("Destination", () => {
     expect(destination.alt).to.equal("overview of city buildings with a clear sky");
   });
 
-  it('should be able to show all destinations in abc order', function() {
-    expect(destination.findAllDestinations(destinationData)).to.deep.equal([
-      "Cartagena, Colombia", "Lima, Peru",
-      "Stockholm, Sweden", "Sydney, Austrailia"
-    ]);
-  });
-
 });

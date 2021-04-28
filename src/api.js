@@ -40,18 +40,17 @@ export const fetchData = () => {
 };
 
 export const postNewTrip = (data) => {
-  const init = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
-  }
-  return fetch("http://localhost:3001/api/v1/trips")
+  return fetch("http://localhost:3001/api/v1/trips",
+    {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
     .then(checkForErr)
     .then(newData => {
-      allData.tripsData.push(newData)
-      console.log(allData)
+      allData.tripsData.append(newData)
     })
     .catch(error => "Sorry! We're having some trouble. Please try back later!")
 }

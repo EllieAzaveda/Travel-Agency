@@ -19,6 +19,7 @@
 
 .view-trips {
   display: inline-flex;
+  flex-wrap: wrap;
   margin: 0 1em;
 }
 
@@ -26,24 +27,28 @@
 .current-trip {
   grid-column: 2 / span 3;
   grid-row: 2;
+  flex-wrap: wrap;
 }
 
 .past,
 .past-trips {
   grid-column: 2 / span 3;
   grid-row: 3;
+  flex-wrap: wrap;
 }
 
 .upcoming,
 .upcoming-trips {
   grid-column: 2 / span 3;
   grid-row: 4;
+  flex-wrap: wrap;
 }
 
 .pending,
 .pending-trips {
   grid-column: 2 / span 3;
   grid-row: 5;
+  flex-wrap: wrap;
 }
 
 .trips-title {
