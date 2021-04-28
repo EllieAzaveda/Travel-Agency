@@ -99,8 +99,8 @@ The test results will output to the terminal.
         <td>Styling</td>
     </tr>
     </tr>
-        <td><img src="./assets/readme/js-icon.png" alt="javascript" width="100" height="auto" /></td>
-        <td><img src="./assets/readme/html-logo.png" alt="html" width="100" height="auto" /></td>
-        <td><img src="./assets/readme/css-logo.png" alt="css" width="100" height="auto" /></td>
+        <td><img src="./src/images/js-icon.png" alt="javascript" width="100" height="auto" /></td>
+        <td><img src="./src/images/html-logo.png" alt="html" width="100" height="auto" /></td>
+        <td><img src="./src/images/css-logo.png" alt="css" width="100" height="auto" /></td>
     </tr>
 </table>
