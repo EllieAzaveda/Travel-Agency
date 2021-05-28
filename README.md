@@ -1,4 +1,4 @@
-# FitReal
+# Travel Agency
 
 ## Table of Contents
 * [Description](#description)
